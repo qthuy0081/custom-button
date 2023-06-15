@@ -1,0 +1,31 @@
+<div [ngSwitch]="buttonMode">
+  <div *ngSwitchCase="'externalLink' || 'internalLink'">
+    <a
+      [href]="url"
+      [target]="buttonMode === 'externalLink' ? '_blank' : '_self'"
+      [class]="buttonTypeClass"
+      class="inline-flex items-center gap-2"
+      [ngClass]="{ 'cursor-not-allowed opacity-50': disabled }"
+    >
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+      <ng-container *ngIf="!!buttonText">{{ buttonText }}</ng-container>
+      <ng-container *ngIf="!!icon">
+        <fa-icon [icon]="icon"></fa-icon>
+      </ng-container>
+    </a>
+  </div>
+  <div *ngSwitchDefault>
+    <button
+      [class]="buttonTypeClass"
+      class="inline-flex items-center gap-2"
+      [disabled]="disabled"
+      [ngClass]="{ 'cursor-not-allowed opacity-50': disabled }"
+    >
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+      <ng-container *ngIf="!!buttonText">{{ buttonText }}</ng-container>
+      <ng-container *ngIf="!!icon">
+        <fa-icon [icon]="icon"></fa-icon>
+      </ng-container>
+    </button>
+  </div>
+</div>

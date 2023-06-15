@@ -1,0 +1,22 @@
+<div class="w-fit flex flex-col gap-4 p-10">
+  <h1 class="text-2xl font-bold">Custom Button V1</h1>
+  <custom-button-v1 [buttonText]="'Click me'" [buttonMode]="'button'"></custom-button-v1>
+  <custom-button-v1 [buttonText]="'Google URL'" [icon]="faExternalLink" buttonType="pill" [buttonMode]="'externalLink'" [url]="'https://www.google.com'"></custom-button-v1>
+  <custom-button-v1 buttonType="pill" [buttonContent]="buttonContent" [buttonMode]="'externalLink'" [url]="'https://www.google.com'">
+  </custom-button-v1>
+
+  <h1 class="text-2xl font-bold">Custom Button V2</h1>
+  <button custom-button-v2 buttonType="pill">Click me</button>
+  <button custom-button-v2 buttonType="3D" [disabled]="true">Click me</button>
+  <a target="_blank" href="https://www.angular.dev" class="flex items-center gap-2 w-fit" custom-button-v2 buttonType="pill">
+    <span>Angular</span>
+    <angular-icon></angular-icon>
+  </a>
+</div>
+
+<ng-template #buttonContent>
+  <div class="flex items-center gap-2">
+    <span>Google URL</span>
+    <fa-icon [icon]="faExternalLink"></fa-icon>
+  </div>
+</ng-template>
